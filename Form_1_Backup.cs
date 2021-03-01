@@ -24,7 +24,7 @@ namespace Bens_Test01
 
         public int i = 0;
         public Form2 myNewForm = new Form2();
-        public void Bens_Knopf_Test()
+        public void Bens_Knopf_Test(string widget_typ = "Button")
         {
             
             if (i == 0)
@@ -34,18 +34,62 @@ namespace Bens_Test01
             }
             else
             {
-                Button MyButton = new Button();
-                MyButton.Text = "Submit";
-                myNewForm.Controls.Add(MyButton);
+                if (widget_typ == "Button")
+                {
+                    Button MyButton = new Button();
+                    MyButton.Text = "Submit";
+                    myNewForm.Controls.Add(MyButton);
+                    ControlExtension.Draggable(MyButton, true);
+                }
+                else if (widget_typ == "Label")
+                {
+                    Label mylab = new Label();
+                    mylab.Text = "GeeksforGeeks";
+                    myNewForm.Controls.Add(mylab);
+                    ControlExtension.Draggable(mylab, true);
+                }
+
+                else if (widget_typ == "Radiobutton")
+                {
+                    RadioButton r1 = new RadioButton();
+                    r1.Text = "Intern";
+                    myNewForm.Controls.Add(r1);
+                    ControlExtension.Draggable(r1, true);
+                }
+
+                else if (widget_typ == "Entry")
+                {
+                    TextBox Mytextbox = new TextBox();
+                    Mytextbox.Text = "Text here";
+                    myNewForm.Controls.Add(Mytextbox);
+                    ControlExtension.Draggable(Mytextbox, true);
+                }
+
+                
+                else if (widget_typ == "Checkbox")
+                {
+                    CheckBox Mycheckbox = new CheckBox();
+                    Mycheckbox.Text = "Married";
+                    myNewForm.Controls.Add(Mycheckbox);
+                    ControlExtension.Draggable(Mycheckbox, true);
+                }
+
+                else if (widget_typ == "Progressbar")
+                {
+                    ProgressBar myProgressBar = new ProgressBar();
+                    myProgressBar.Text = "Progress";
+                    myNewForm.Controls.Add(myProgressBar);
+                    ControlExtension.Draggable(myProgressBar, true);
+                }
             }
 
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
 
-            Bens_Knopf_Test();
+            Bens_Knopf_Test("Checkbox");
 
         }
     }
