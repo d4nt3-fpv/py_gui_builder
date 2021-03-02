@@ -27,12 +27,32 @@ namespace Bens_Test01
         public void Bens_Knopf_Test(string widget_typ = "Button")
         {
             
-            if (i == 0)
+            if (i == 0)     // The first time, this method is running
             {
                 myNewForm.Show();
-                i++;
+                
+                var anz_btn = 0;
+                var anz_lbl = 0;
+                var anz_radbtn = 0;
+                var anz_entry = 0;
+                var anz_checkbox = 0;
+                var anz_prgsbar = 0;
+                
+                List<string> list_of_all_ui_elements = new List<string>();
+                List<string> list_of_all_buttons = new List<string>();
+                List<string> list_of_all_labels = new List<string>();
+                List<string> list_of_all_radiobtns = new List<string>();
+                List<string> list_of_all_entrys = new List<string>();
+                List<string> list_of_all_checkboxes = new List<string>();
+                List<string> list_of_all_prgsbars = new List<string>();
+                
+                // mytestlist.Add("Testa");
+                // mytestlist.Add("TestB");
+                // Console.WriteLine(mytestlist[0]);
+
+                i++;    // WICHTIG!!!
             }
-            else
+            else // Runs every time, when the method is called
             {
                 if (widget_typ == "Button")
                 {
@@ -92,5 +112,6 @@ namespace Bens_Test01
             Bens_Knopf_Test("Checkbox");
 
         }
+
     }
 }
