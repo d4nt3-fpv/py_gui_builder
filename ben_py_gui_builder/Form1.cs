@@ -221,6 +221,18 @@ namespace ben_py_gui_builder
             }
 
 
+            for (int j = 0; j < list_of_all_radiobtns.Count; j++)
+            {
+                var aktradbtn = list_of_all_radiobtns[j];
+                var radbtn_loc_x = myNewForm.Controls.Find(aktradbtn, true)[0].Location.X;
+                var radbtn_loc_y = myNewForm.Controls.Find(aktradbtn, true)[0].Location.Y;
+                var tkinter_radbtn_string = aktradbtn + " = Radiobutton(window, text='" + aktradbtn + "').place(x=" + radbtn_loc_x + "," + "y=" + radbtn_loc_y + ")";
+                File.AppendAllText(location, tkinter_radbtn_string);
+                File.AppendAllText(location, "\n");
+                Console.WriteLine(tkinter_radbtn_string);
+
+            }
+
 
             File.AppendAllText(location, "window.mainloop()");
 
