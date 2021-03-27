@@ -150,6 +150,8 @@ namespace ben_py_gui_builder
 
             File.WriteAllText(location, "from tkinter import *");
             File.AppendAllText(location, "\n");
+            File.AppendAllText(location, "from tkinter.ttk import *");
+            File.AppendAllText(location, "\n");
             File.AppendAllText(location, "window=Tk()");
             File.AppendAllText(location, "\n");
             File.AppendAllText(location, "window.title('Python GUI')");
@@ -193,6 +195,31 @@ namespace ben_py_gui_builder
                 Console.WriteLine(tkinter_chbox_string);
 
             }
+
+            for (int j = 0; j < list_of_all_entrys.Count; j++)
+            {
+                var aktentry = list_of_all_entrys[j];
+                var entry_loc_x = myNewForm.Controls.Find(aktentry, true)[0].Location.X;
+                var entry_loc_y = myNewForm.Controls.Find(aktentry, true)[0].Location.Y;
+                var tkinter_entry_string = aktentry + " = Entry(window, text='" + aktentry + "').place(x=" + entry_loc_x + "," + "y=" + entry_loc_y + ")";
+                File.AppendAllText(location, tkinter_entry_string);
+                File.AppendAllText(location, "\n");
+                Console.WriteLine(tkinter_entry_string);
+
+            }
+
+            for (int j = 0; j < list_of_all_prgsbars.Count; j++)
+            {
+                var aktprgsbar = list_of_all_prgsbars[j];
+                var prgsbar_loc_x = myNewForm.Controls.Find(aktprgsbar, true)[0].Location.X;
+                var prgsbar_loc_y = myNewForm.Controls.Find(aktprgsbar, true)[0].Location.Y;
+                var tkinter_prgsbar_string = aktprgsbar + " = Progressbar(window, length = 100, orient = HORIZONTAL).place(x=" + prgsbar_loc_x + "," + "y=" + prgsbar_loc_y + ")";
+                File.AppendAllText(location, tkinter_prgsbar_string);
+                File.AppendAllText(location, "\n");
+                Console.WriteLine(tkinter_prgsbar_string);
+
+            }
+
 
 
             File.AppendAllText(location, "window.mainloop()");
