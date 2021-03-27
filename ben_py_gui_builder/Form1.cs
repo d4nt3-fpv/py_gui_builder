@@ -170,6 +170,31 @@ namespace ben_py_gui_builder
 
             }
 
+            for (int j = 0; j < list_of_all_labels.Count; j++)
+            {
+                var akt_lbl = list_of_all_labels[j];
+                var lbl_loc_x = myNewForm.Controls.Find(akt_lbl, true)[0].Location.X;
+                var lbl_loc_y = myNewForm.Controls.Find(akt_lbl, true)[0].Location.Y;
+                var tkinter_label_string = akt_lbl + " = Label(window, text='" + akt_lbl + "').place(x=" + lbl_loc_x + "," + "y=" + lbl_loc_y + ")";
+                File.AppendAllText(location, tkinter_label_string);
+                File.AppendAllText(location, "\n");
+                Console.WriteLine(tkinter_label_string);
+
+            }
+
+            for (int j = 0; j < list_of_all_checkboxes.Count; j++)
+            {
+                var aktcheckbox = list_of_all_checkboxes[j];
+                var chbox_loc_x = myNewForm.Controls.Find(aktcheckbox, true)[0].Location.X;
+                var chbox_loc_y = myNewForm.Controls.Find(aktcheckbox, true)[0].Location.Y;
+                var tkinter_chbox_string = aktcheckbox + " = Checkbutton(window, text='" + aktcheckbox + "').place(x=" + chbox_loc_x + "," + "y=" + chbox_loc_y + ")";
+                File.AppendAllText(location, tkinter_chbox_string);
+                File.AppendAllText(location, "\n");
+                Console.WriteLine(tkinter_chbox_string);
+
+            }
+
+
             File.AppendAllText(location, "window.mainloop()");
 
         }
