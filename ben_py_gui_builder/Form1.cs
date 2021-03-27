@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -129,6 +131,48 @@ namespace ben_py_gui_builder
             }
         }
 
+        public void generate_gui()
+        {
+
+
+            saveFileDialog1.FileName = "python-GUI";
+            saveFileDialog1.Title = "SAVE PYTHON GUI";
+            saveFileDialog1.Filter = "Python files|*.py";
+            saveFileDialog1.AddExtension = true;
+            saveFileDialog1.ShowDialog();
+            string location = saveFileDialog1.FileName;
+            Console.WriteLine(location);
+
+            var height_window = myNewForm.Height;
+            var width_window = myNewForm.Width;
+            var geometry_string = "window.geometry('" + width_window + "x" + height_window + "+10" + "+20" + "')";
+            
+
+            File.WriteAllText(location, "from tkinter import *");
+            File.AppendAllText(location, "\n");
+            File.AppendAllText(location, "window=Tk()");
+            File.AppendAllText(location, "\n");
+            File.AppendAllText(location, "window.title('Python GUI')");
+            File.AppendAllText(location, "\n");
+            File.AppendAllText(location, geometry_string);
+            File.AppendAllText(location, "\n");
+            
+
+            for (int j = 0; j < list_of_all_buttons.Count; j++)
+            {
+                var akt_btn = list_of_all_buttons[j];
+                var btn_loc_x = myNewForm.Controls.Find(akt_btn, true)[0].Location.X;
+                var btn_loc_y = myNewForm.Controls.Find(akt_btn, true)[0].Location.Y;
+                var tkinter_button_string = akt_btn + " = Button(window, text='" + akt_btn + "').place(x=" + btn_loc_x + "," + "y=" + btn_loc_y + ")";
+                File.AppendAllText(location, tkinter_button_string);
+                File.AppendAllText(location, "\n");
+                Console.WriteLine(tkinter_button_string);
+
+            }
+
+            File.AppendAllText(location, "window.mainloop()");
+
+        }
         
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -163,6 +207,11 @@ namespace ben_py_gui_builder
         private void progressbar_btn_Click(object sender, EventArgs e)
         {
             Bens_main_function("Progressbar");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            generate_gui();
         }
     }
 }

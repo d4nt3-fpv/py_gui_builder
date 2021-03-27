@@ -34,6 +34,8 @@
             this.entry_btn = new System.Windows.Forms.Button();
             this.checkbox_btn = new System.Windows.Forms.Button();
             this.progressbar_btn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.SuspendLayout();
             // 
             // btn_btn
@@ -96,11 +98,22 @@
             this.progressbar_btn.UseVisualStyleBackColor = true;
             this.progressbar_btn.Click += new System.EventHandler(this.progressbar_btn_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 292);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Generate GUi";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(120, 646);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.progressbar_btn);
             this.Controls.Add(this.checkbox_btn);
             this.Controls.Add(this.entry_btn);
@@ -122,5 +135,7 @@
         private System.Windows.Forms.Button entry_btn;
         private System.Windows.Forms.Button checkbox_btn;
         private System.Windows.Forms.Button progressbar_btn;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
