@@ -143,8 +143,8 @@ namespace ben_py_gui_builder
             string location = saveFileDialog1.FileName;
             Console.WriteLine(location);
 
-            var height_window = myNewForm.Height;
-            var width_window = myNewForm.Width;
+            var height_window = myNewForm.Height - 39; // the 39 and 16 for the right export size with tkinter
+            var width_window = myNewForm.Width - 16;
             var geometry_string = "window.geometry('" + width_window + "x" + height_window + "+10" + "+20" + "')";
             
 
