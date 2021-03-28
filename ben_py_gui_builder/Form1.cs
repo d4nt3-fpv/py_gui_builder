@@ -158,13 +158,13 @@ namespace ben_py_gui_builder
             File.AppendAllText(location, "\n");
             File.AppendAllText(location, geometry_string);
             File.AppendAllText(location, "\n");
-            
+            File.AppendAllText(location, "\n");
+
 
             for (int j = 0; j < list_of_all_buttons.Count; j++)
             {
                 if (j == 0)
                 {
-                    File.AppendAllText(location, "\n");
                     File.AppendAllText(location, "########### Buttons ###########");
                     File.AppendAllText(location, "\n");
                 }
@@ -188,7 +188,6 @@ namespace ben_py_gui_builder
             {
                 if (j == 0)
                 {
-                    File.AppendAllText(location, "\n");
                     File.AppendAllText(location, "########### Labels ###########");
                     File.AppendAllText(location, "\n");
                 }
@@ -213,7 +212,6 @@ namespace ben_py_gui_builder
 
                 if (j == 0)
                 {
-                    File.AppendAllText(location, "\n");
                     File.AppendAllText(location, "########### Checkboxes ###########");
                     File.AppendAllText(location, "\n");
                 }
@@ -237,7 +235,6 @@ namespace ben_py_gui_builder
             {
                 if (j == 0)
                 {
-                    File.AppendAllText(location, "\n");
                     File.AppendAllText(location, "########### Entrys ###########");
                     File.AppendAllText(location, "\n");
                 }
@@ -262,7 +259,6 @@ namespace ben_py_gui_builder
 
                 if (j == 0)
                 {
-                    File.AppendAllText(location, "\n");
                     File.AppendAllText(location, "########### Progressbars ###########");
                     File.AppendAllText(location, "\n");
                 }
@@ -288,7 +284,6 @@ namespace ben_py_gui_builder
 
                 if (j == 0)
                 {
-                    File.AppendAllText(location, "\n");
                     File.AppendAllText(location, "########### Radiobuttons ###########");
                     File.AppendAllText(location, "\n");
                 }
