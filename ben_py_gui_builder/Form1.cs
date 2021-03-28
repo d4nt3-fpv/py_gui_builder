@@ -162,6 +162,13 @@ namespace ben_py_gui_builder
 
             for (int j = 0; j < list_of_all_buttons.Count; j++)
             {
+                if (j == 0)
+                {
+                    File.AppendAllText(location, "\n");
+                    File.AppendAllText(location, "########### Buttons ###########");
+                    File.AppendAllText(location, "\n");
+                }
+                
                 var akt_btn = list_of_all_buttons[j];
                 var btn_loc_x = myNewForm.Controls.Find(akt_btn, true)[0].Location.X;
                 var btn_loc_y = myNewForm.Controls.Find(akt_btn, true)[0].Location.Y;
@@ -170,10 +177,22 @@ namespace ben_py_gui_builder
                 File.AppendAllText(location, "\n");
                 Console.WriteLine(tkinter_button_string);
 
+                if (j == list_of_all_buttons.Count - 1)
+                {
+                    File.AppendAllText(location, "\n");
+                }
+
             }
 
             for (int j = 0; j < list_of_all_labels.Count; j++)
             {
+                if (j == 0)
+                {
+                    File.AppendAllText(location, "\n");
+                    File.AppendAllText(location, "########### Labels ###########");
+                    File.AppendAllText(location, "\n");
+                }
+
                 var akt_lbl = list_of_all_labels[j];
                 var lbl_loc_x = myNewForm.Controls.Find(akt_lbl, true)[0].Location.X;
                 var lbl_loc_y = myNewForm.Controls.Find(akt_lbl, true)[0].Location.Y;
@@ -182,10 +201,23 @@ namespace ben_py_gui_builder
                 File.AppendAllText(location, "\n");
                 Console.WriteLine(tkinter_label_string);
 
+                if (j == list_of_all_labels.Count - 1)
+                {
+                    File.AppendAllText(location, "\n");
+                }
+
             }
 
             for (int j = 0; j < list_of_all_checkboxes.Count; j++)
             {
+
+                if (j == 0)
+                {
+                    File.AppendAllText(location, "\n");
+                    File.AppendAllText(location, "########### Checkboxes ###########");
+                    File.AppendAllText(location, "\n");
+                }
+
                 var aktcheckbox = list_of_all_checkboxes[j];
                 var chbox_loc_x = myNewForm.Controls.Find(aktcheckbox, true)[0].Location.X;
                 var chbox_loc_y = myNewForm.Controls.Find(aktcheckbox, true)[0].Location.Y;
@@ -194,10 +226,22 @@ namespace ben_py_gui_builder
                 File.AppendAllText(location, "\n");
                 Console.WriteLine(tkinter_chbox_string);
 
+                if (j == list_of_all_checkboxes.Count - 1)
+                {
+                    File.AppendAllText(location, "\n");
+                }
+
             }
 
             for (int j = 0; j < list_of_all_entrys.Count; j++)
             {
+                if (j == 0)
+                {
+                    File.AppendAllText(location, "\n");
+                    File.AppendAllText(location, "########### Entrys ###########");
+                    File.AppendAllText(location, "\n");
+                }
+
                 var aktentry = list_of_all_entrys[j];
                 var entry_loc_x = myNewForm.Controls.Find(aktentry, true)[0].Location.X;
                 var entry_loc_y = myNewForm.Controls.Find(aktentry, true)[0].Location.Y;
@@ -206,10 +250,23 @@ namespace ben_py_gui_builder
                 File.AppendAllText(location, "\n");
                 Console.WriteLine(tkinter_entry_string);
 
+                if (j == list_of_all_entrys.Count - 1)
+                {
+                    File.AppendAllText(location, "\n");
+                }
+
             }
 
             for (int j = 0; j < list_of_all_prgsbars.Count; j++)
             {
+
+                if (j == 0)
+                {
+                    File.AppendAllText(location, "\n");
+                    File.AppendAllText(location, "########### Progressbars ###########");
+                    File.AppendAllText(location, "\n");
+                }
+
                 var aktprgsbar = list_of_all_prgsbars[j];
                 var prgsbar_loc_x = myNewForm.Controls.Find(aktprgsbar, true)[0].Location.X;
                 var prgsbar_loc_y = myNewForm.Controls.Find(aktprgsbar, true)[0].Location.Y;
@@ -218,11 +275,24 @@ namespace ben_py_gui_builder
                 File.AppendAllText(location, "\n");
                 Console.WriteLine(tkinter_prgsbar_string);
 
+                if (j == list_of_all_prgsbars.Count - 1)
+                {
+                    File.AppendAllText(location, "\n");
+                }
+
             }
 
 
             for (int j = 0; j < list_of_all_radiobtns.Count; j++)
             {
+
+                if (j == 0)
+                {
+                    File.AppendAllText(location, "\n");
+                    File.AppendAllText(location, "########### Radiobuttons ###########");
+                    File.AppendAllText(location, "\n");
+                }
+
                 var aktradbtn = list_of_all_radiobtns[j];
                 var radbtn_loc_x = myNewForm.Controls.Find(aktradbtn, true)[0].Location.X;
                 var radbtn_loc_y = myNewForm.Controls.Find(aktradbtn, true)[0].Location.Y;
@@ -231,6 +301,11 @@ namespace ben_py_gui_builder
                 File.AppendAllText(location, "\n");
                 Console.WriteLine(tkinter_radbtn_string);
 
+                if (j == list_of_all_radiobtns.Count - 1)
+                {
+                    File.AppendAllText(location, "\n");
+                }
+                
             }
 
 
