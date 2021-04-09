@@ -18,17 +18,17 @@ namespace ben_py_gui_builder
         public Form1()
         {
             InitializeComponent();
-            Bens_main_function();
+            Bens_main_function(); // Start the second form
         }
 
-        public int anz_btn = 0;
+        public int anz_btn = 0; // Variables for the count of the ui elements
         public int anz_lbl = 0;
         public int anz_radbtn = 0;
         public int anz_entry = 0;
         public int anz_checkbox = 0;
         public int anz_prgsbar = 0;
 
-        public List<string> list_of_all_ui_elements = new List<string>();
+        public List<string> list_of_all_ui_elements = new List<string>(); // List of all ui elements
         public List<string> list_of_all_buttons = new List<string>();
         public List<string> list_of_all_labels = new List<string>();
         public List<string> list_of_all_radiobtns = new List<string>();
@@ -37,8 +37,8 @@ namespace ben_py_gui_builder
         public List<string> list_of_all_prgsbars = new List<string>();
 
         public int i = 0;
-        public Form2 myNewForm = new Form2();
-        public void Bens_main_function(string widget_typ = "Button")
+        public Form2 myNewForm = new Form2(); // init new form
+        public void Bens_main_function(string widget_typ = "Button") // This is my main function
         {
 
             if (i == 0)     // The first time, this method is running
@@ -49,7 +49,7 @@ namespace ben_py_gui_builder
             }
             else // Runs every time, when the method is called
             {
-                if (widget_typ == "Button")
+                if (widget_typ == "Button") // add Button to second form
                 {
                     var btn_name = "Button_" + anz_btn.ToString();
                     Button MyButton = new Button();
@@ -61,7 +61,7 @@ namespace ben_py_gui_builder
                     list_of_all_ui_elements.Add(MyButton.Name);
                     anz_btn = anz_btn + 1;
                 }
-                else if (widget_typ == "Label")
+                else if (widget_typ == "Label") // add Label to second form
                 {
                     var lbl_name = "Label_" + anz_lbl.ToString();
                     Label mylab = new Label();
@@ -75,7 +75,7 @@ namespace ben_py_gui_builder
 
                 }
 
-                else if (widget_typ == "Radiobutton")
+                else if (widget_typ == "Radiobutton") // add radiobutton to second form
                 {
                     var radbtn_name = "Radiobtn_" + anz_radbtn.ToString();
                     RadioButton r1 = new RadioButton();
@@ -88,7 +88,7 @@ namespace ben_py_gui_builder
                     anz_radbtn = anz_radbtn + 1;
                 }
 
-                else if (widget_typ == "Entry")
+                else if (widget_typ == "Entry") // add entry to form2
                 {
                     var entry_name = "Entry_" + anz_entry.ToString();
                     TextBox Mytextbox = new TextBox();
@@ -102,7 +102,7 @@ namespace ben_py_gui_builder
                 }
 
 
-                else if (widget_typ == "Checkbox")
+                else if (widget_typ == "Checkbox") // add checkbox to second form
                 {
                     var checkbox_name = "Checkbox_" + anz_checkbox.ToString();
                     CheckBox Mycheckbox = new CheckBox();
@@ -116,7 +116,7 @@ namespace ben_py_gui_builder
 
                 }
 
-                else if (widget_typ == "Progressbar")
+                else if (widget_typ == "Progressbar") // add progressbar to form2
                 {
                     var progressbarname = "Progressbar_" + anz_prgsbar.ToString();
                     ProgressBar myProgressBar = new ProgressBar();
@@ -131,7 +131,7 @@ namespace ben_py_gui_builder
             }
         }
 
-        public void generate_gui()
+        public void generate_gui() // method to generate the python gui
         {
 
 
