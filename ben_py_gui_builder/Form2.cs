@@ -16,5 +16,10 @@ namespace ben_py_gui_builder
         {
             InitializeComponent();
         }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

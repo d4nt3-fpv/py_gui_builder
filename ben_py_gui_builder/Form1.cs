@@ -38,12 +38,14 @@ namespace ben_py_gui_builder
 
         public int i = 0;
         public Form2 myNewForm = new Form2();
+        public settings_window form3 = new settings_window();
         public void Bens_main_function(string widget_typ = "Button")
         {
 
             if (i == 0)     // The first time, this method is running
             {
                 myNewForm.Show();
+                form3.Show();
                 i++;    // WICHTIG!!!
 
             }
@@ -128,10 +130,53 @@ namespace ben_py_gui_builder
                     list_of_all_prgsbars.Add(myProgressBar.Name);
                     anz_prgsbar = anz_prgsbar + 1;
                 }
+
+
+                for (int j = 0; j < list_of_all_ui_elements.Count; j++)
+                {
+                    var akt_ch_box = myNewForm.Controls.Find(list_of_all_ui_elements[j], true)[0];
+
+                    akt_ch_box.Click += new EventHandler(dynamic_control_click);
+
+                }
+
+
+
             }
         }
 
-        public void generate_gui()
+        public static bool runonce = true; // bool zum überprüfen, ob die Funktion schonmal gestartet wurde.
+        public static Control lastcontrol; // Die checkbox variable für die letzte checkbox
+        public static Control selected_control; // The var for the selected control
+
+        protected void dynamic_control_click(object sender, EventArgs e)
+        {
+
+            Control clicked_control = sender as Control; // sender gibt zurück, welches control/objekt das event ausgelöst hat.
+            // clicked_control.BackColor = Color.Aqua; // Das Control, das ausgelöst hat rot färben, use ForceColor for text highlighting
+            clicked_control.ForeColor = Color.DarkViolet;
+            Console.WriteLine("Click"); // In Konsole Printen, dass geklickt wurde
+            selected_control = clicked_control; // The public variable selected contol to the clicked_control
+            if (!runonce) // Wenn die Funktion noch nicht ausgeführt wurde...
+            {
+                if (lastcontrol != clicked_control) // normalerweise wird die letzte checkbox auf schwarz gefärbt, doch was, wenn es die selbe ist...
+                {
+                    // lastcontrol.BackColor = Color.Transparent; // wenn es nicht die selbe ist, wird die box schwarz gefärbt.
+                    lastcontrol.ForeColor = Color.Black;
+                }
+
+            }
+
+            Console.WriteLine(clicked_control.Name);
+
+            lastcontrol = clicked_control;    // die letzte checkbox auf die aktuelle setzen...
+            runonce = false; // wenn die funktion einmal durchlaufen ist, muss die runonce bool auf false gesetzt werden
+
+        }
+
+
+
+    public void generate_gui()
         {
 
 
