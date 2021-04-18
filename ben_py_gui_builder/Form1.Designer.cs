@@ -36,6 +36,7 @@
             this.progressbar_btn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.gen_json_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_btn
@@ -100,19 +101,30 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 292);
+            this.button1.Location = new System.Drawing.Point(13, 289);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(75, 42);
             this.button1.TabIndex = 7;
-            this.button1.Text = "Generate GUi";
+            this.button1.Text = "Generate GUI";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // gen_json_btn
+            // 
+            this.gen_json_btn.Location = new System.Drawing.Point(12, 337);
+            this.gen_json_btn.Name = "gen_json_btn";
+            this.gen_json_btn.Size = new System.Drawing.Size(75, 42);
+            this.gen_json_btn.TabIndex = 8;
+            this.gen_json_btn.Text = "Generate Json";
+            this.gen_json_btn.UseVisualStyleBackColor = true;
+            this.gen_json_btn.Click += new System.EventHandler(this.gen_json_btn_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(120, 646);
+            this.Controls.Add(this.gen_json_btn);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.progressbar_btn);
             this.Controls.Add(this.checkbox_btn);
@@ -137,5 +149,6 @@
         private System.Windows.Forms.Button progressbar_btn;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button gen_json_btn;
     }
 }

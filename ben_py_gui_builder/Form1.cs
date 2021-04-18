@@ -175,6 +175,11 @@ namespace ben_py_gui_builder
         }
 
 
+        public void generate_json()
+        {
+            Console.WriteLine("Generate json");
+        }
+        
 
         public void generate_gui()
         {
@@ -391,6 +396,11 @@ namespace ben_py_gui_builder
         private void button1_Click(object sender, EventArgs e)
         {
             generate_gui();
+        }
+
+        private void gen_json_btn_Click(object sender, EventArgs e)
+        {
+            generate_json();
         }
     }
 }
