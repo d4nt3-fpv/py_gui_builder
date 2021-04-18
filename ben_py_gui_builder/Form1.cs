@@ -45,7 +45,7 @@ namespace ben_py_gui_builder
             if (i == 0)     // The first time, this method is running
             {
                 myNewForm.Show();
-                form3.Show();
+                // form3.Show();                    For the settings window!!!
                 i++;    // WICHTIG!!!
 
             }
@@ -176,7 +176,7 @@ namespace ben_py_gui_builder
 
 
 
-    public void generate_gui()
+        public void generate_gui()
         {
 
 
@@ -191,7 +191,7 @@ namespace ben_py_gui_builder
             var height_window = myNewForm.Height - 39; // the 39 and 16 for the right export size with tkinter
             var width_window = myNewForm.Width - 16;
             var geometry_string = "window.geometry('" + width_window + "x" + height_window + "+10" + "+20" + "')";
-            
+
 
             File.WriteAllText(location, "from tkinter import *");
             File.AppendAllText(location, "\n");
@@ -213,7 +213,7 @@ namespace ben_py_gui_builder
                     File.AppendAllText(location, "########### Buttons ###########");
                     File.AppendAllText(location, "\n");
                 }
-                
+
                 var akt_btn = list_of_all_buttons[j];
                 var btn_loc_x = myNewForm.Controls.Find(akt_btn, true)[0].Location.X;
                 var btn_loc_y = myNewForm.Controls.Find(akt_btn, true)[0].Location.Y;
@@ -345,14 +345,14 @@ namespace ben_py_gui_builder
                 {
                     File.AppendAllText(location, "\n");
                 }
-                
+
             }
 
 
             File.AppendAllText(location, "window.mainloop()");
 
         }
-        
+
         private void Form1_Load(object sender, EventArgs e)
         {
             // Bens_main_function("Checkbox");
