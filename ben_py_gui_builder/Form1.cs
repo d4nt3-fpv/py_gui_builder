@@ -192,7 +192,7 @@ namespace ben_py_gui_builder
 
         public void generate_gui()
         {
-
+            
 
             saveFileDialog1.FileName = "python-GUI";
             saveFileDialog1.Title = "SAVE PYTHON GUI";
@@ -412,4 +412,16 @@ namespace ben_py_gui_builder
             generate_json();
         }
     }
+
+    class gui_elements  // For the json generation
+    {
+        public string Name;
+        public string ctrl_type;
+        public string pos_x;
+        public string pos_y;
+        public string height;
+        public string width;
+    }
+    
+    
 }
