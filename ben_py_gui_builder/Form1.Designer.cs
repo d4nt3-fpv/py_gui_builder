@@ -37,6 +37,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.gen_json_btn = new System.Windows.Forms.Button();
+            this.saveFileDialog2 = new System.Windows.Forms.SaveFileDialog();
             this.SuspendLayout();
             // 
             // btn_btn
@@ -150,5 +151,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Button gen_json_btn;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog2;
     }
 }

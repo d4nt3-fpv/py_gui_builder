@@ -178,6 +178,15 @@ namespace ben_py_gui_builder
         public void generate_json()
         {
             Console.WriteLine("Generate json");
+
+            saveFileDialog2.FileName = "guifile";
+            saveFileDialog2.Title = "SAVE GUI AS JSON FILE";
+            saveFileDialog2.Filter = "GUI files|*.json";
+            saveFileDialog2.AddExtension = true;
+            saveFileDialog2.ShowDialog();
+            string json_location = saveFileDialog2.FileName;
+            Console.WriteLine(json_location);
+
         }
         
 
