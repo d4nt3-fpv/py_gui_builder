@@ -10,6 +10,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace ben_py_gui_builder
 {
@@ -187,6 +188,17 @@ namespace ben_py_gui_builder
             string json_location = saveFileDialog2.FileName;
             Console.WriteLine(json_location);
 
+            gui_elements test_gui_element = new gui_elements();
+            test_gui_element.Name = "Button_test";
+            test_gui_element.ctrl_type = "Btn";
+            test_gui_element.pos_x = "345";
+            test_gui_element.pos_y = "123";
+            test_gui_element.height = "34";
+            test_gui_element.width = "56";
+
+            string generated_json = JsonConvert.SerializeObject(test_gui_element, Formatting.Indented);
+            Console.WriteLine(generated_json);
+            File.WriteAllText(json_location, generated_json);
         }
         
 
@@ -422,6 +434,5 @@ namespace ben_py_gui_builder
         public string height;
         public string width;
     }
-    
     
 }
