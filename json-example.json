@@ -1,0 +1,30 @@
+{
+        "Buttons" : [
+                {
+                        "Name" :  "Button1",
+                        "Color" : "Red"
+
+                },
+                
+                {
+                        "Name" : "Button2",
+                        "Color" : "Blue"
+                }
+
+        ],
+
+        "Lables" : [
+                {
+                        "Name" : "Label1",
+                        "Color" : "Black"
+                },
+
+                {
+                        "Name" : "Label2",
+                        "Color" : "Blue"
+                }
+        ]
+}
+
+
+
