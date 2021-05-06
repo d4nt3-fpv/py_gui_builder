@@ -228,11 +228,6 @@ namespace ben_py_gui_builder
 
             for (int j = 0; j < list_of_all_buttons.Count; j++)
             {
-                if (j == 0)
-                {
-                    // First time, the loop runs
-                }
-
                 JObject button_objects = new JObject(); // Object for the buttons 
 
                 var akt_btn = list_of_all_buttons[j];
@@ -247,23 +242,10 @@ namespace ben_py_gui_builder
                  button_objects.Add("location_y", btn_loc_y);
 
                  button_array.Add(button_objects);
-
-                 
-
-                if (j == list_of_all_buttons.Count - 1)
-                {
-                    //  last round of the loop...
-
-                }
-
             }
 
             for (int j = 0; j < list_of_all_labels.Count; j++)
             {
-                if (j == 0)
-                {
-                    // First time, the loop runs
-                }
 
                 JObject label_objects = new JObject(); // Object for the buttons 
 
@@ -277,29 +259,13 @@ namespace ben_py_gui_builder
                 label_objects.Add("Height", null);
                 label_objects.Add("location_x", lbl_loc_x);
                 label_objects.Add("location_y", lbl_loc_y);
-
                 label_array.Add(label_objects);
-
-
-                if (j == list_of_all_labels.Count - 1)
-                {
-                    //  last round of the loop...
-
-
-                }
 
             }
 
             for (int j = 0; j < list_of_all_checkboxes.Count; j++)
             {
-
-                if (j == 0)
-                {
-                    // First time, the loop runs
-                }
-
                 JObject checkbox_objects = new JObject(); // Object for the buttons 
-
 
                 var aktcheckbox = list_of_all_checkboxes[j];
                 var chbox_loc_x = myNewForm.Controls.Find(aktcheckbox, true)[0].Location.X;
@@ -313,33 +279,15 @@ namespace ben_py_gui_builder
                 checkbox_objects.Add("location_y", chbox_loc_y);
 
                 checkbox_array.Add(checkbox_objects);
-
-
-
-
-                if (j == list_of_all_checkboxes.Count - 1)
-                {
-                    //  last round of the loop...
-
-                }
-
             }
-
-
+            
             for (int j = 0; j < list_of_all_entrys.Count; j++)
             {
-                if (j == 0)
-                {
-                    // First time, the loop runs
-                }
-
                 JObject entry_objects = new JObject(); // Object for the entrys 
-
 
                 var aktentry = list_of_all_entrys[j];
                 var entry_loc_x = myNewForm.Controls.Find(aktentry, true)[0].Location.X;
                 var entry_loc_y = myNewForm.Controls.Find(aktentry, true)[0].Location.Y;
-
 
                 entry_objects.Add("Name", aktentry);
                 entry_objects.Add("Color", null);
@@ -349,33 +297,12 @@ namespace ben_py_gui_builder
                 entry_objects.Add("location_y", entry_loc_y);
 
                 entry_array.Add(entry_objects);
-                
-                
-
-                if (j == list_of_all_entrys.Count - 1)
-                {
-                    //  last round of the loop...
-
-
-                }
-
-
-
-
             }
-
-
 
             for (int j = 0; j < list_of_all_prgsbars.Count; j++) // TODO Error: Doubles the Progressbars
             {
 
-                if (j == 0)
-                {
-                    // First time, the loop runs
-                }
-
                 JObject prgsbar_objects = new JObject(); // Object for the entrys 
-                
                 
                 var aktprgsbar = list_of_all_prgsbars[j];
                 var prgsbar_loc_x = myNewForm.Controls.Find(aktprgsbar, true)[0].Location.X;
@@ -387,29 +314,11 @@ namespace ben_py_gui_builder
                 prgsbar_objects.Add("Height", null);
                 prgsbar_objects.Add("location_x", prgsbar_loc_x);
                 prgsbar_objects.Add("location_y", prgsbar_loc_y);
-
                 progressbar_array.Add(prgsbar_objects);
 
-
-                if (j == list_of_all_prgsbars.Count - 1)
-                {
-                    //  last round of the loop...
-
-
-                }
-
             }
-
-
-
             for (int j = 0; j < list_of_all_radiobtns.Count; j++)
             {
-
-                if (j == 0)
-                {
-                    // First time, the loop runs
-                }
-
                 JObject radiobtn_objects = new JObject(); // Object for the entrys 
 
                 var aktradbtn = list_of_all_radiobtns[j];
@@ -422,20 +331,11 @@ namespace ben_py_gui_builder
                 radiobtn_objects.Add("Height", null);
                 radiobtn_objects.Add("location_x", radbtn_loc_x);
                 radiobtn_objects.Add("location_y", radbtn_loc_y);
-
                 radio_array.Add(radiobtn_objects);
-
-
-                if (j == list_of_all_radiobtns.Count - 1)
-                {
-                    //  last round of the loop...
-
-                }
-
             }
 
 
-
+            
             json_god_object["Buttons"] = button_array;
             json_god_object["Labels"] = label_array;
             json_god_object["Checkboxes"] = checkbox_array;
@@ -445,9 +345,6 @@ namespace ben_py_gui_builder
 
             string json = json_god_object.ToString(); // show the main object  TODO Das muss ganz zum schluss aller for schleifen!!!
             Console.WriteLine(json);
-
-
-
 
 
         }
