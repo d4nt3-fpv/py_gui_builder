@@ -285,8 +285,46 @@ namespace ben_py_gui_builder
                 {
                     //  last round of the loop...
 
+
+                }
+
+            }
+
+            for (int j = 0; j < list_of_all_checkboxes.Count; j++)
+            {
+
+                if (j == 0)
+                {
+                    // First time, the loop runs
+                }
+
+                JObject checkbox_objects = new JObject(); // Object for the buttons 
+
+
+                var aktcheckbox = list_of_all_checkboxes[j];
+                var chbox_loc_x = myNewForm.Controls.Find(aktcheckbox, true)[0].Location.X;
+                var chbox_loc_y = myNewForm.Controls.Find(aktcheckbox, true)[0].Location.Y;
+
+                checkbox_objects.Add("Name", aktcheckbox);
+                checkbox_objects.Add("Color", null);
+                checkbox_objects.Add("Width", null);
+                checkbox_objects.Add("Height", null);
+                checkbox_objects.Add("location_x", chbox_loc_x);
+                checkbox_objects.Add("location_y", chbox_loc_y);
+
+                checkbox_array.Add(checkbox_objects);
+
+
+
+
+                if (j == list_of_all_checkboxes.Count - 1)
+                {
+                    //  last round of the loop...
+
+
                     json_god_object["Buttons"] = button_array;
                     json_god_object["Labels"] = label_array;
+                    json_god_object["Checkboxes"] = checkbox_array;
                     string json = json_god_object.ToString(); // show the main object  TODO Das muss ganz zum schluss aller for schleifen!!!
                     Console.WriteLine(json);
 
