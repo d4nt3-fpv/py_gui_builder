@@ -150,11 +150,7 @@ namespace ben_py_gui_builder
         public static bool runonce = true; // bool zum überprüfen, ob die Funktion schonmal gestartet wurde.
         public static Control lastcontrol; // Die checkbox variable für die letzte checkbox
         public static Control selected_control; // The var for the selected control
-         
         
-        
-        // Beeetttaaaa------------------------------
-
         
         JArray button_array = new JArray(); // the array for the different buttons, labels, etc.
         JArray label_array = new JArray(); // the array for the different buttons, labels, etc.
@@ -162,8 +158,6 @@ namespace ben_py_gui_builder
         JArray entry_array = new JArray(); // the array for the different buttons, labels, etc.
         JArray checkbox_array = new JArray(); // the array for the different buttons, labels, etc.
         JArray progressbar_array = new JArray(); // the array for the different buttons, labels, etc.
-
-        // -----------------------------------------
 
         protected void dynamic_control_click(object sender, EventArgs e)
         {
@@ -203,28 +197,8 @@ namespace ben_py_gui_builder
             string json_location = saveFileDialog2.FileName;
             Console.WriteLine(json_location);
 
-            gui_elements test_gui_element = new gui_elements();
-            test_gui_element.Name = "Button_test";
-            test_gui_element.ctrl_type = "Btn";
-            test_gui_element.pos_x = "345";
-            test_gui_element.pos_y = "123";
-            test_gui_element.height = "34";
-            test_gui_element.width = "56";
-
-            string generated_json = JsonConvert.SerializeObject(test_gui_element, Formatting.Indented);
-            Console.WriteLine(generated_json);
-            File.WriteAllText(json_location, generated_json);
-
-            // For gernerating the json: --------
-
-            
-            // JArray label_array = new JArray(); // the array for the different buttons, labels, etc.
             JObject json_god_object = new JObject(); // This is the main object, the god object
             
-
-
-            // For loops...
-
 
             for (int j = 0; j < list_of_all_buttons.Count; j++)
             {
@@ -345,6 +319,7 @@ namespace ben_py_gui_builder
 
             string json = json_god_object.ToString(); // show the main object  TODO Das muss ganz zum schluss aller for schleifen!!!
             Console.WriteLine(json);
+            File.WriteAllText(json_location, json);
 
 
         }
@@ -571,15 +546,4 @@ namespace ben_py_gui_builder
             generate_json();
         }
     }
-
-    class gui_elements  // For the json generation
-    {
-        public string Name;
-        public string ctrl_type;
-        public string pos_x;
-        public string pos_y;
-        public string height;
-        public string width;
-    }
-    
 }
