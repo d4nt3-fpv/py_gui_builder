@@ -159,7 +159,9 @@ namespace ben_py_gui_builder
         JArray button_array = new JArray(); // the array for the different buttons, labels, etc.
         JArray label_array = new JArray(); // the array for the different buttons, labels, etc.
         JArray radio_array = new JArray(); // the array for the different buttons, labels, etc.
-        JArray beta = new JArray(); // the array for the different buttons, labels, etc.
+        JArray entry_array = new JArray(); // the array for the different buttons, labels, etc.
+        JArray checkbox_array = new JArray(); // the array for the different buttons, labels, etc.
+        JArray progressbar_array = new JArray(); // the array for the different buttons, labels, etc.
 
         // -----------------------------------------
 
@@ -229,8 +231,6 @@ namespace ben_py_gui_builder
                 if (j == 0)
                 {
                     // First time, the loop runs
-
-                    
                 }
 
                 JObject button_objects = new JObject(); // Object for the buttons 
@@ -252,18 +252,47 @@ namespace ben_py_gui_builder
 
                 if (j == list_of_all_buttons.Count - 1)
                 {
-                    // I think thats the last round...
+                    //  last round of the loop...
 
-                    json_god_object["Buttons"] = button_array;
-
-                    string json = json_god_object.ToString(); // show the main object  TODO Das muss ganz zum schluss aller for schleifen!!!
-
-                    Console.WriteLine(json);
                 }
 
             }
 
+            for (int j = 0; j < list_of_all_labels.Count; j++)
+            {
+                if (j == 0)
+                {
+                    // First time, the loop runs
+                }
 
+                JObject label_objects = new JObject(); // Object for the buttons 
+
+                var akt_lbl = list_of_all_labels[j];
+                var lbl_loc_x = myNewForm.Controls.Find(akt_lbl, true)[0].Location.X;
+                var lbl_loc_y = myNewForm.Controls.Find(akt_lbl, true)[0].Location.Y;
+
+                label_objects.Add("Name", akt_lbl);
+                label_objects.Add("Color", null);
+                label_objects.Add("Width", null);
+                label_objects.Add("Height", null);
+                label_objects.Add("location_x", lbl_loc_x);
+                label_objects.Add("location_y", lbl_loc_y);
+
+                label_array.Add(label_objects);
+
+
+                if (j == list_of_all_labels.Count - 1)
+                {
+                    //  last round of the loop...
+
+                    json_god_object["Buttons"] = button_array;
+                    json_god_object["Labels"] = label_array;
+                    string json = json_god_object.ToString(); // show the main object  TODO Das muss ganz zum schluss aller for schleifen!!!
+                    Console.WriteLine(json);
+
+                }
+
+            }
 
 
 
