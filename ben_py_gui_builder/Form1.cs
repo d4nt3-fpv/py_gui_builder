@@ -321,16 +321,52 @@ namespace ben_py_gui_builder
                 {
                     //  last round of the loop...
 
+                }
+
+            }
+
+
+            for (int j = 0; j < list_of_all_entrys.Count; j++)
+            {
+                if (j == 0)
+                {
+                    // First time, the loop runs
+                }
+
+                JObject entry_objects = new JObject(); // Object for the entrys 
+
+
+                var aktentry = list_of_all_entrys[j];
+                var entry_loc_x = myNewForm.Controls.Find(aktentry, true)[0].Location.X;
+                var entry_loc_y = myNewForm.Controls.Find(aktentry, true)[0].Location.Y;
+
+
+                entry_objects.Add("Name", aktentry);
+                entry_objects.Add("Color", null);
+                entry_objects.Add("Width", null);
+                entry_objects.Add("Height", null);
+                entry_objects.Add("location_x", entry_loc_x);
+                entry_objects.Add("location_y", entry_loc_y);
+
+                entry_array.Add(entry_objects);
+                
+                
+
+                if (j == list_of_all_entrys.Count - 1)
+                {
+                    //  last round of the loop...
 
                     json_god_object["Buttons"] = button_array;
                     json_god_object["Labels"] = label_array;
                     json_god_object["Checkboxes"] = checkbox_array;
+                    json_god_object["Entry"] = entry_array;
                     string json = json_god_object.ToString(); // show the main object  TODO Das muss ganz zum schluss aller for schleifen!!!
                     Console.WriteLine(json);
 
                 }
 
             }
+
 
 
 
