@@ -129,7 +129,6 @@ namespace ben_py_gui_builder
                     myNewForm.Controls.Add(myProgressBar);
                     ControlExtension.Draggable(myProgressBar, true);
                     list_of_all_prgsbars.Add(myProgressBar.Name);
-                    list_of_all_prgsbars.Add(myProgressBar.Name);
                     anz_prgsbar = anz_prgsbar + 1;
                 }
 
