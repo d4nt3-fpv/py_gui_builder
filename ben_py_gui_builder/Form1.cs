@@ -359,6 +359,9 @@ namespace ben_py_gui_builder
 
                 }
 
+
+
+
             }
 
 
@@ -427,19 +430,22 @@ namespace ben_py_gui_builder
                 {
                     //  last round of the loop...
 
-                    json_god_object["Buttons"] = button_array;
-                    json_god_object["Labels"] = label_array;
-                    json_god_object["Checkboxes"] = checkbox_array;
-                    json_god_object["Entrys"] = entry_array;
-                    json_god_object["Progressbars"] = progressbar_array;
-                    json_god_object["Radiobuttons"] = radio_array;
-
-                    string json = json_god_object.ToString(); // show the main object  TODO Das muss ganz zum schluss aller for schleifen!!!
-                    Console.WriteLine(json);
-
                 }
 
             }
+
+
+
+            json_god_object["Buttons"] = button_array;
+            json_god_object["Labels"] = label_array;
+            json_god_object["Checkboxes"] = checkbox_array;
+            json_god_object["Entrys"] = entry_array;
+            json_god_object["Progressbars"] = progressbar_array;
+            json_god_object["Radiobuttons"] = radio_array;
+
+            string json = json_god_object.ToString(); // show the main object  TODO Das muss ganz zum schluss aller for schleifen!!!
+            Console.WriteLine(json);
+
 
 
 
