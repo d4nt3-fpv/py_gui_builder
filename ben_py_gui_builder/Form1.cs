@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace ben_py_gui_builder
 {
@@ -149,6 +150,18 @@ namespace ben_py_gui_builder
         public static bool runonce = true; // bool zum überprüfen, ob die Funktion schonmal gestartet wurde.
         public static Control lastcontrol; // Die checkbox variable für die letzte checkbox
         public static Control selected_control; // The var for the selected control
+         
+        
+        
+        // Beeetttaaaa------------------------------
+
+        
+        JArray button_array = new JArray(); // the array for the different buttons, labels, etc.
+        JArray label_array = new JArray(); // the array for the different buttons, labels, etc.
+        JArray radio_array = new JArray(); // the array for the different buttons, labels, etc.
+        JArray beta = new JArray(); // the array for the different buttons, labels, etc.
+
+        // -----------------------------------------
 
         protected void dynamic_control_click(object sender, EventArgs e)
         {
@@ -199,12 +212,67 @@ namespace ben_py_gui_builder
             string generated_json = JsonConvert.SerializeObject(test_gui_element, Formatting.Indented);
             Console.WriteLine(generated_json);
             File.WriteAllText(json_location, generated_json);
+
+            // For gernerating the json: --------
+
+            
+            // JArray label_array = new JArray(); // the array for the different buttons, labels, etc.
+            JObject json_god_object = new JObject(); // This is the main object, the god object
+            
+
+
+            // For loops...
+
+
+            for (int j = 0; j < list_of_all_buttons.Count; j++)
+            {
+                if (j == 0)
+                {
+                    // First time, the loop runs
+
+                    
+                }
+
+                JObject button_objects = new JObject(); // Object for the buttons 
+
+                var akt_btn = list_of_all_buttons[j];
+                var btn_loc_x = myNewForm.Controls.Find(akt_btn, true)[0].Location.X;
+                var btn_loc_y = myNewForm.Controls.Find(akt_btn, true)[0].Location.Y;
+
+                 button_objects.Add("Name", akt_btn);
+                 button_objects.Add("Color", null);
+                 button_objects.Add("Width", null);
+                 button_objects.Add("Height", null);
+                 button_objects.Add("location_x", btn_loc_x);
+                 button_objects.Add("location_y", btn_loc_y);
+
+                 button_array.Add(button_objects);
+
+                 
+
+                if (j == list_of_all_buttons.Count - 1)
+                {
+                    // I think thats the last round...
+
+                    json_god_object["Buttons"] = button_array;
+
+                    string json = json_god_object.ToString(); // show the main object  TODO Das muss ganz zum schluss aller for schleifen!!!
+
+                    Console.WriteLine(json);
+                }
+
+            }
+
+
+
+
+
+
         }
-        
+
 
         public void generate_gui()
         {
-            
 
             saveFileDialog1.FileName = "python-GUI";
             saveFileDialog1.Title = "SAVE PYTHON GUI";
