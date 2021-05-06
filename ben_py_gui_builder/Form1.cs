@@ -356,17 +356,90 @@ namespace ben_py_gui_builder
                 {
                     //  last round of the loop...
 
+
+                }
+
+            }
+
+
+
+            for (int j = 0; j < list_of_all_prgsbars.Count; j++) // TODO Error: Doubles the Progressbars
+            {
+
+                if (j == 0)
+                {
+                    // First time, the loop runs
+                }
+
+                JObject prgsbar_objects = new JObject(); // Object for the entrys 
+                
+                
+                var aktprgsbar = list_of_all_prgsbars[j];
+                var prgsbar_loc_x = myNewForm.Controls.Find(aktprgsbar, true)[0].Location.X;
+                var prgsbar_loc_y = myNewForm.Controls.Find(aktprgsbar, true)[0].Location.Y;
+
+                prgsbar_objects.Add("Name", aktprgsbar);
+                prgsbar_objects.Add("Color", null);
+                prgsbar_objects.Add("Width", null);
+                prgsbar_objects.Add("Height", null);
+                prgsbar_objects.Add("location_x", prgsbar_loc_x);
+                prgsbar_objects.Add("location_y", prgsbar_loc_y);
+
+                progressbar_array.Add(prgsbar_objects);
+
+
+                if (j == list_of_all_prgsbars.Count - 1)
+                {
+                    //  last round of the loop...
+
+
+                }
+
+            }
+
+
+
+            for (int j = 0; j < list_of_all_radiobtns.Count; j++)
+            {
+
+                if (j == 0)
+                {
+                    // First time, the loop runs
+                }
+
+                JObject radiobtn_objects = new JObject(); // Object for the entrys 
+
+                var aktradbtn = list_of_all_radiobtns[j];
+                var radbtn_loc_x = myNewForm.Controls.Find(aktradbtn, true)[0].Location.X;
+                var radbtn_loc_y = myNewForm.Controls.Find(aktradbtn, true)[0].Location.Y;
+
+                radiobtn_objects.Add("Name", aktradbtn);
+                radiobtn_objects.Add("Color", null);
+                radiobtn_objects.Add("Width", null);
+                radiobtn_objects.Add("Height", null);
+                radiobtn_objects.Add("location_x", radbtn_loc_x);
+                radiobtn_objects.Add("location_y", radbtn_loc_y);
+
+                radio_array.Add(radiobtn_objects);
+
+
+                if (j == list_of_all_radiobtns.Count - 1)
+                {
+                    //  last round of the loop...
+
                     json_god_object["Buttons"] = button_array;
                     json_god_object["Labels"] = label_array;
                     json_god_object["Checkboxes"] = checkbox_array;
-                    json_god_object["Entry"] = entry_array;
+                    json_god_object["Entrys"] = entry_array;
+                    json_god_object["Progressbars"] = progressbar_array;
+                    json_god_object["Radiobuttons"] = radio_array;
+
                     string json = json_god_object.ToString(); // show the main object  TODO Das muss ganz zum schluss aller for schleifen!!!
                     Console.WriteLine(json);
 
                 }
 
             }
-
 
 
 
