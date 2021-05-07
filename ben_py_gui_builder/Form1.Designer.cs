@@ -38,6 +38,8 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.gen_json_btn = new System.Windows.Forms.Button();
             this.saveFileDialog2 = new System.Windows.Forms.SaveFileDialog();
+            this.open_json_btn = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // btn_btn
@@ -120,11 +122,26 @@
             this.gen_json_btn.UseVisualStyleBackColor = true;
             this.gen_json_btn.Click += new System.EventHandler(this.gen_json_btn_Click);
             // 
+            // open_json_btn
+            // 
+            this.open_json_btn.Location = new System.Drawing.Point(13, 442);
+            this.open_json_btn.Name = "open_json_btn";
+            this.open_json_btn.Size = new System.Drawing.Size(75, 42);
+            this.open_json_btn.TabIndex = 9;
+            this.open_json_btn.Text = "Open Json";
+            this.open_json_btn.UseVisualStyleBackColor = true;
+            this.open_json_btn.Click += new System.EventHandler(this.open_json_btn_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(120, 646);
+            this.Controls.Add(this.open_json_btn);
             this.Controls.Add(this.gen_json_btn);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.progressbar_btn);
@@ -152,5 +169,7 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Button gen_json_btn;
         private System.Windows.Forms.SaveFileDialog saveFileDialog2;
+        private System.Windows.Forms.Button open_json_btn;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

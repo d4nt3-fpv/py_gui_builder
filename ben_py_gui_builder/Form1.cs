@@ -184,6 +184,7 @@ namespace ben_py_gui_builder
 
         }
 
+        
 
         public void generate_json()
         {
@@ -513,6 +514,21 @@ namespace ben_py_gui_builder
 
         }
 
+
+        public void open_json()
+        {
+            Console.WriteLine("open json");
+
+            openFileDialog1.FileName = "";
+            openFileDialog1.Filter = "GUI files|*.json";
+            openFileDialog1.AddExtension = true;
+            openFileDialog1.ShowDialog();
+            string open_json_location = openFileDialog1.FileName;
+            Console.WriteLine(open_json_location);
+
+        }
+        
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             // Bens_main_function("Checkbox");
@@ -556,6 +572,11 @@ namespace ben_py_gui_builder
         private void gen_json_btn_Click(object sender, EventArgs e)
         {
             generate_json();
+        }
+
+        private void open_json_btn_Click(object sender, EventArgs e)
+        {
+            open_json();
         }
     }
 }
