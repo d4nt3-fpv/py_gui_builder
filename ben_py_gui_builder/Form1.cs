@@ -157,6 +157,7 @@ namespace ben_py_gui_builder
         JArray entry_array = new JArray(); // the array for the different buttons, labels, etc.
         JArray checkbox_array = new JArray(); // the array for the different buttons, labels, etc.
         JArray progressbar_array = new JArray(); // the array for the different buttons, labels, etc.
+        
 
         protected void dynamic_control_click(object sender, EventArgs e)
         {
@@ -197,7 +198,18 @@ namespace ben_py_gui_builder
             Console.WriteLine(json_location);
 
             JObject json_god_object = new JObject(); // This is the main object, the god object
-            
+
+            JObject settings_object = new JObject(); // Object for the settings 
+
+
+            var json_height_window = myNewForm.Height - 39; // the 39 and 16 for the right export size with tkinter
+            var json_width_window = myNewForm.Width - 16;
+
+            settings_object.Add("Window_height", json_height_window);
+            settings_object.Add("Window_width", json_width_window);
+            settings_object.Add("Window_title", "title");
+            settings_object.Add("Window_sizable", true);
+            settings_object.Add("Window_bgcolor", null);
 
             for (int j = 0; j < list_of_all_buttons.Count; j++)
             {
@@ -308,7 +320,8 @@ namespace ben_py_gui_builder
             }
 
 
-            
+
+            json_god_object["Settings"] = settings_object;
             json_god_object["Buttons"] = button_array;
             json_god_object["Labels"] = label_array;
             json_god_object["Checkboxes"] = checkbox_array;
