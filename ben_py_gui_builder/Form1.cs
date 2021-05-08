@@ -531,7 +531,13 @@ namespace ben_py_gui_builder
 
             dynamic dynamic_json = Newtonsoft.Json.JsonConvert.DeserializeObject(opend_json_file_string);
 
-            Console.WriteLine(dynamic_json.Buttons);
+            //Console.WriteLine(dynamic_json.Buttons);
+
+            foreach (var item in dynamic_json.Buttons)
+            {
+                Console.WriteLine(item.Name);
+                Console.WriteLine("----------------");
+            }
             
         }
         
