@@ -525,12 +525,14 @@ namespace ben_py_gui_builder
             openFileDialog1.ShowDialog();
             string open_json_location = openFileDialog1.FileName;
             Console.WriteLine(open_json_location);
-
             string opend_json_file_string = File.ReadAllText(open_json_location, Encoding.UTF8);
+            // Console.WriteLine(opend_json_file_string);
+
+
+            dynamic dynamic_json = Newtonsoft.Json.JsonConvert.DeserializeObject(opend_json_file_string);
+
+            Console.WriteLine(dynamic_json.Buttons);
             
-            Console.WriteLine(opend_json_file_string);
-
-
         }
         
         
@@ -583,5 +585,7 @@ namespace ben_py_gui_builder
         {
             open_json();
         }
+
+        
     }
 }
