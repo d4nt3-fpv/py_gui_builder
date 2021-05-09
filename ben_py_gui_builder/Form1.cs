@@ -330,7 +330,7 @@ namespace ben_py_gui_builder
             json_god_object["Progressbars"] = progressbar_array;
             json_god_object["Radiobuttons"] = radio_array;
 
-            string json = json_god_object.ToString(); // show the main object  TODO Das muss ganz zum schluss aller for schleifen!!!
+            string json = json_god_object.ToString(); // show the main object
             Console.WriteLine(json);
             File.WriteAllText(json_location, json);
 
@@ -537,8 +537,39 @@ namespace ben_py_gui_builder
             {
                 Console.WriteLine(item.Name);
                 Console.WriteLine("----------------");
+
+                Button MyButton = new Button();
+                MyButton.Text = "Button";
+                MyButton.Name = item.Name;
+                MyButton.Location = new Point(item.location_x.ToObject<int>(), item.location_x.ToObject<int>());
+                //Console.WriteLine(item.location_x.GetType());
+                //Console.WriteLine(item.location_y.GetType());
+
+                // int storedValue = item.location_x.ToObject<int>();
+
+                myNewForm.Controls.Add(MyButton);
+                ControlExtension.Draggable(MyButton, true);
+                list_of_all_buttons.Add(MyButton.Name);
+                list_of_all_ui_elements.Add(MyButton.Name);
+                anz_btn = anz_btn + 1;
             }
             
+            
+            
+            
+            
+            
+
+            for (int j = 0; j < list_of_all_ui_elements.Count; j++)
+            {
+                var akt_ch_box = myNewForm.Controls.Find(list_of_all_ui_elements[j], true)[0];
+
+                akt_ch_box.Click += new EventHandler(dynamic_control_click);
+
+            }
+
+
+
         }
         
         
