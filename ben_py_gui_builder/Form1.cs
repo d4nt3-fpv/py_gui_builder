@@ -531,22 +531,22 @@ namespace ben_py_gui_builder
 
             dynamic dynamic_json = Newtonsoft.Json.JsonConvert.DeserializeObject(opend_json_file_string);
 
-            //Console.WriteLine(dynamic_json.Buttons);
+
+            // Setting up the window settings
+
+            var json_loaded_height_window = dynamic_json.Settings.Window_height + 39;
+            var json_loaded_width_window = dynamic_json.Settings.Window_width + 16;
+
+            myNewForm.Width = json_loaded_width_window.ToObject<int>();
+            myNewForm.Height = json_loaded_height_window.ToObject<int>();
+
 
             foreach (var item in dynamic_json.Buttons)
             {
-                Console.WriteLine(item.Name);
-                Console.WriteLine("----------------");
-
                 Button MyButton = new Button();
                 MyButton.Text = "Button";
                 MyButton.Name = item.Name;
                 MyButton.Location = new Point(item.location_x.ToObject<int>(), item.location_x.ToObject<int>());
-                //Console.WriteLine(item.location_x.GetType());
-                //Console.WriteLine(item.location_y.GetType());
-
-                // int storedValue = item.location_x.ToObject<int>();
-
                 myNewForm.Controls.Add(MyButton);
                 ControlExtension.Draggable(MyButton, true);
                 list_of_all_buttons.Add(MyButton.Name);
