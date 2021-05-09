@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Security.AccessControl;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -21,8 +22,11 @@ namespace ben_py_gui_builder
         {
             InitializeComponent();
             Bens_main_function();
+
         }
 
+        
+        
         public int anz_btn = 0;
         public int anz_lbl = 0;
         public int anz_radbtn = 0;
@@ -531,7 +535,7 @@ namespace ben_py_gui_builder
 
             dynamic dynamic_json = Newtonsoft.Json.JsonConvert.DeserializeObject(opend_json_file_string);
 
-
+            
             // Setting up the window settings
 
             var json_loaded_height_window = dynamic_json.Settings.Window_height + 39;
@@ -555,7 +559,7 @@ namespace ben_py_gui_builder
             }
             
             
-            
+            // TODO Do that with all the other ui elements...
             
             
             
@@ -570,6 +574,19 @@ namespace ben_py_gui_builder
 
 
 
+        }
+
+
+        public void ask_for_save() // TODO: this is the window for asking if you wanna save. but it dosnt work haha. I neet to track if the form is closed or not.
+        {
+                DialogResult dialog = new DialogResult();
+
+                dialog = MessageBox.Show("Do you want to close?", "Alert!", MessageBoxButtons.YesNo);
+
+                if (dialog == DialogResult.Yes)
+                {
+                    System.Environment.Exit(1);
+                }
         }
         
         
@@ -622,7 +639,5 @@ namespace ben_py_gui_builder
         {
             open_json();
         }
-
-        
     }
 }
