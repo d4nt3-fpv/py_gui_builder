@@ -12,6 +12,7 @@ namespace ben_py_gui_builder
 {
     public partial class Form2 : Form
     {
+
         public Form2()
         {
             InitializeComponent();
@@ -24,8 +25,8 @@ namespace ben_py_gui_builder
 
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            e.Cancel = true;
         }
-        
+
     }
 }

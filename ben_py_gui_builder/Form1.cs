@@ -550,7 +550,7 @@ namespace ben_py_gui_builder
                 Button MyButton = new Button();
                 MyButton.Text = "Button";
                 MyButton.Name = item.Name;
-                MyButton.Location = new Point(item.location_x.ToObject<int>(), item.location_x.ToObject<int>());
+                MyButton.Location = new Point(item.location_x.ToObject<int>(), item.location_y.ToObject<int>());
                 myNewForm.Controls.Add(MyButton);
                 ControlExtension.Draggable(MyButton, true);
                 list_of_all_buttons.Add(MyButton.Name);
@@ -586,16 +586,14 @@ namespace ben_py_gui_builder
                 if (dialog == DialogResult.Yes)
                 {
                     generate_json();
+                    Application.ExitThread();
                 }
 
                 else if (dialog == DialogResult.No)
                 {
                     //Application.Exit();
                     Application.ExitThread();
-                }   
-
-                
-                
+                }
         }
         
         
