@@ -581,12 +581,21 @@ namespace ben_py_gui_builder
         {
                 DialogResult dialog = new DialogResult();
 
-                dialog = MessageBox.Show("Do you want to close?", "Alert!", MessageBoxButtons.YesNo);
+                dialog = MessageBox.Show("Do you want to save before closing?", "Save", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
 
                 if (dialog == DialogResult.Yes)
                 {
-                    System.Environment.Exit(1);
+                    generate_json();
                 }
+
+                else if (dialog == DialogResult.No)
+                {
+                    //Application.Exit();
+                    Application.ExitThread();
+                }   
+
+                
+                
         }
         
         
@@ -639,5 +648,13 @@ namespace ben_py_gui_builder
         {
             open_json();
         }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ask_for_save();
+
+            e.Cancel = true;
+
+        }       
     }
 }

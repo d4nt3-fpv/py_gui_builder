@@ -21,5 +21,11 @@ namespace ben_py_gui_builder
         {
 
         }
+
+        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+        }
+        
     }
 }
