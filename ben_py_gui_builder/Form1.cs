@@ -161,7 +161,8 @@ namespace ben_py_gui_builder
         JArray entry_array = new JArray(); // the array for the different buttons, labels, etc.
         JArray checkbox_array = new JArray(); // the array for the different buttons, labels, etc.
         JArray progressbar_array = new JArray(); // the array for the different buttons, labels, etc.
-        
+
+
 
         protected void dynamic_control_click(object sender, EventArgs e)
         {
@@ -183,12 +184,24 @@ namespace ben_py_gui_builder
 
             Console.WriteLine(clicked_control.Name);
 
+            // TODO: If you click delete it will delete the selected control and not the clicked control...
+            
+            ContextMenu cm = new ContextMenu();
+            cm.MenuItems.Add("Delete", new EventHandler(delete_click)); 
+            cm.MenuItems.Add("Item 2");
+            
+            clicked_control.ContextMenu = cm;
+            
+            
+            
             lastcontrol = clicked_control;    // die letzte checkbox auf die aktuelle setzen...
             runonce = false; // wenn die funktion einmal durchlaufen ist, muss die runonce bool auf false gesetzt werden
 
         }
 
-        
+
+
+
 
         public void generate_json()
         {
@@ -289,7 +302,7 @@ namespace ben_py_gui_builder
                 entry_array.Add(entry_objects);
             }
 
-            for (int j = 0; j < list_of_all_prgsbars.Count; j++) // TODO Error: Doubles the Progressbars
+            for (int j = 0; j < list_of_all_prgsbars.Count; j++)
             {
 
                 JObject prgsbar_objects = new JObject(); // Object for the entrys 
@@ -653,6 +666,20 @@ namespace ben_py_gui_builder
 
             e.Cancel = true;
 
-        }       
+        }
+
+
+        // --------------------
+
+
+        public void delete_click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Test");
+        }
+
     }
+
+
 }
+    
+
