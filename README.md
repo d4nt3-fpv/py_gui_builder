@@ -1,6 +1,6 @@
 # The gui builder for python
 
-This project is in a beta section. There are currently no releases, but they will comme soon. 
+This project is in a beta section. There are currently no releases, but they will come soon. 
 I would appreciate, if you contribute. All contributers are welcome!
 
 ## The functionality
