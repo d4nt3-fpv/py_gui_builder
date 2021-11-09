@@ -11,3 +11,13 @@ I want to implement the following festures:
 - Save and Load the GUI as json
 - Settings for each control element
 - Etc.
+
+
+## What else has to be done?
+
+The design of the UI needs to be embellished. I'm aiming for a complete redesign of the front end.
+
+## Contribute!
+
+Feel free to contribute! Just send me a pull request!
+
